@@ -1,9 +1,13 @@
 package tn.esprit.thabti_ahmed_4twin5.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.thabti_ahmed_4twin5.Services.ISkieurServices;
+import tn.esprit.thabti_ahmed_4twin5.entities.Color;
 import tn.esprit.thabti_ahmed_4twin5.entities.Piste;
 import tn.esprit.thabti_ahmed_4twin5.Services.PisteServiceImpl;
+import tn.esprit.thabti_ahmed_4twin5.entities.Skieur;
 
 import java.util.List;
 
@@ -11,8 +15,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/piste")
 public class PisteRestController {
-
+    @Autowired
     private final PisteServiceImpl pisteService;
+
+    @Autowired
+    private ISkieurServices skieurServices;
 
     @PostMapping("/add")
     public Piste addPiste(@RequestBody Piste piste) {
@@ -37,5 +44,10 @@ public class PisteRestController {
     @DeleteMapping("/delete/{numPiste}")
     public void deletePiste(@PathVariable Long numPiste) {
         pisteService.removePiste(numPiste);
+    }
+
+    @PostMapping("/assignToPiste/{fname}/{lname}/{color}")
+    public Skieur assignSkieurToPiste(@PathVariable String fname, @PathVariable String lname, @PathVariable Color color) {
+        return pisteService.assignSkieurToPiste(fname, lname, color);
     }
 }

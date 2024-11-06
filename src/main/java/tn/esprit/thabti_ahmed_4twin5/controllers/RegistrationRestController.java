@@ -2,8 +2,8 @@ package tn.esprit.thabti_ahmed_4twin5.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.thabti_ahmed_4twin5.Services.IRegistrationService;
 import tn.esprit.thabti_ahmed_4twin5.entities.Registration;
-import tn.esprit.thabti_ahmed_4twin5.Services.RegistrationServiceImpl;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/registration")
 public class RegistrationRestController {
 
-    private final RegistrationServiceImpl registrationService;
+    private final IRegistrationService registrationService;
 
     @PostMapping("/add")
     public Registration addRegistration(@RequestBody Registration registration) {
@@ -37,5 +37,9 @@ public class RegistrationRestController {
     @DeleteMapping("/delete/{numRegistration}")
     public void deleteRegistration(@PathVariable Long numRegistration) {
         registrationService.removeRegistration(numRegistration);
+    }
+    @PostMapping("/assignToCourse/{numCourse}")
+    public Registration assignRegistrationToCourse(@RequestBody Registration registration, @PathVariable Long numCourse ) {
+        return registrationService.addRegistartionToCourse(registration, numCourse);
     }
 }

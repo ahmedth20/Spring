@@ -1,6 +1,7 @@
 package tn.esprit.thabti_ahmed_4twin5.Services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.thabti_ahmed_4twin5.entities.Subscription;
 import tn.esprit.thabti_ahmed_4twin5.Repositories.ISubscriptionRepository;

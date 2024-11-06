@@ -1,5 +1,6 @@
 package tn.esprit.thabti_ahmed_4twin5.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,11 +32,11 @@ public class Piste implements Serializable {
 
     private int length;
     private int slope;
-    private LocalTime birthDate;
+
 
     @Enumerated(EnumType.STRING)
     private Color color;
-
-    @ManyToMany(mappedBy = "pistes")
+    @JsonIgnore
+    @ManyToMany
     Set<Skieur> skieurs;
 }

@@ -25,7 +25,8 @@ public class Skieur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idskier;
-    private String name;
+    private String firstName;
+    private String lastName;
 
     private LocalDate birthDate;
     private String city;
@@ -35,7 +36,7 @@ public class Skieur implements Serializable {
     @OneToMany(mappedBy = "skieur")
     Set<Registration> registrations;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "skieurs")
     Set<Piste> pistes;
 
 }
