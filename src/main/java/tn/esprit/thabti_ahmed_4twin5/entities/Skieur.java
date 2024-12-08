@@ -30,13 +30,14 @@ public class Skieur implements Serializable {
 
     private LocalDate birthDate;
     private String city;
+
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     Subscription subscription;
 
-    @OneToMany(mappedBy = "skieur")
+    @OneToMany(mappedBy = "skieur") ////Le child est l association la plus faible
     Set<Registration> registrations;
 
-    @ManyToMany(mappedBy = "skieurs")
+    @ManyToMany(mappedBy = "skieurs")  //MAPPED BY TOUJOURS DANS LE CHILD , on a le choix dans Parent et child dans les tables
     Set<Piste> pistes;
 
 }

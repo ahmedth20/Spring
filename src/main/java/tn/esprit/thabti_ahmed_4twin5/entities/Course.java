@@ -31,9 +31,7 @@ public class Course implements Serializable {
     private int timeSlot ;
     @Enumerated(EnumType.STRING)
     private Support support;
-    public enum Support {
-        SKI, SNOWBOARD
-    }
+
 
     @Enumerated(EnumType.STRING)
     private TypeCourse typeCourse;

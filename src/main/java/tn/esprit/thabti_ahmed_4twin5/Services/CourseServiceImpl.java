@@ -1,6 +1,7 @@
 package tn.esprit.thabti_ahmed_4twin5.Services;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tn.esprit.thabti_ahmed_4twin5.entities.Course;
 import tn.esprit.thabti_ahmed_4twin5.Repositories.ICourseRepository;
@@ -9,6 +10,7 @@ import tn.esprit.thabti_ahmed_4twin5.entities.Skieur;
 import java.util.List;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class CourseServiceImpl implements  ICourseService{
 

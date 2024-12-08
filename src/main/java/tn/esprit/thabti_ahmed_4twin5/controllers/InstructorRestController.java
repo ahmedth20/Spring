@@ -1,5 +1,6 @@
 package tn.esprit.thabti_ahmed_4twin5.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.thabti_ahmed_4twin5.entities.Instructor;
@@ -8,6 +9,7 @@ import tn.esprit.thabti_ahmed_4twin5.Services.InstructorServiceImpl;
 import java.util.List;
 
 @RestController
+@Tag(name = "Gestion Instructor")
 @RequiredArgsConstructor
 @RequestMapping("/instructor")
 public class InstructorRestController {
@@ -38,4 +40,13 @@ public class InstructorRestController {
     public void deleteInstructor(@PathVariable Long numInstructor) {
         instructorService.removeInstructor(numInstructor);
     }
+    @PostMapping("/addAndAssignToCourses")
+    public Instructor addInstructorAndAssignToCourses(@RequestBody Instructor instructor) {
+        return instructorService.addInstructorAndAssignToCourses(instructor);
+    }
+    @PostMapping("/addInstructorToCourses/{numCourse}")
+    public Instructor addInstructorToCourses(@RequestBody Instructor instructor, @PathVariable List<Long> numCourse) {
+        return instructorService.addInstructorToCourse(instructor, numCourse);
+    }
+
 }

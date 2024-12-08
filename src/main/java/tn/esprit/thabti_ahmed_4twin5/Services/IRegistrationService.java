@@ -1,6 +1,8 @@
 package tn.esprit.thabti_ahmed_4twin5.Services;
 
 import tn.esprit.thabti_ahmed_4twin5.entities.Registration;
+import tn.esprit.thabti_ahmed_4twin5.entities.Skieur;
+
 import java.util.List;
 
 public interface IRegistrationService {

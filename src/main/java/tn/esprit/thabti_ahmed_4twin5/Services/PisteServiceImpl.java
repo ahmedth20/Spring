@@ -1,6 +1,7 @@
 package tn.esprit.thabti_ahmed_4twin5.Services;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tn.esprit.thabti_ahmed_4twin5.entities.Color;
 import tn.esprit.thabti_ahmed_4twin5.entities.Piste;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class PisteServiceImpl implements IPisteService {
 
@@ -44,7 +46,8 @@ public class PisteServiceImpl implements IPisteService {
     }
 
     @Override
-    public Skieur assignSkieurToPiste(String fname, String lname, Color color) {
+    public Skieur assignSkieurToPiste(String fname, String lname, Color color) { //Les bonnes pratique est d'implementer
+        //DANS LE PARENT
 
         Skieur skieur = skieurRepository.findByFirstNameAndLastName(fname, lname);
         if (skieur == null) {

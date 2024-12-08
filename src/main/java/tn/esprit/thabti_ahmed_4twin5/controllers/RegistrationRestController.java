@@ -1,5 +1,6 @@
 package tn.esprit.thabti_ahmed_4twin5.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.thabti_ahmed_4twin5.Services.IRegistrationService;
@@ -8,6 +9,7 @@ import tn.esprit.thabti_ahmed_4twin5.entities.Registration;
 import java.util.List;
 
 @RestController
+@Tag(name = "Gestion Registration")
 @RequiredArgsConstructor
 @RequestMapping("/registration")
 public class RegistrationRestController {

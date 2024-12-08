@@ -1,5 +1,6 @@
 package tn.esprit.thabti_ahmed_4twin5.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import tn.esprit.thabti_ahmed_4twin5.entities.Skieur;
 import java.util.List;
 
 @RestController
+@Tag(name = "Gestion Piste")
 @RequiredArgsConstructor
 @RequestMapping("/piste")
 public class PisteRestController {
